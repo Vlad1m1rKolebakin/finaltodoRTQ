@@ -1,0 +1,11 @@
+.circularProgressContainer {
+    position: fixed;
+    top: 30%;
+    text-align: center;
+    left: 30%;
+    width: 400px;
+  }
+  .circularProgressContainer > div > svg {
+    width: 300px
+  }
+
