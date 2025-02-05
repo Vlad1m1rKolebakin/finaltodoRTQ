@@ -1,4 +1,4 @@
-import { SyntheticEvent, useState } from "react";
+import { SyntheticEvent} from "react";
 
 import Snackbar from "@mui/material/Snackbar";
 import { Alert, Slide } from "@mui/material";
@@ -16,7 +16,9 @@ const dispatch = useAppDispatch()
   const handleClose = (event: SyntheticEvent | Event, reason?: string) => {
     if (reason === "clickaway") {
       return;
+      
     }
+    console.log(event);
     dispatch(setAppError({ error: null }))
 
     

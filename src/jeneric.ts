@@ -1,4 +1,4 @@
-import { log } from "node:console"
+
 
 const numbers = [1, 2, 3, 4]
 const transformNumberToString = (num: number) => `Number: ${num}`

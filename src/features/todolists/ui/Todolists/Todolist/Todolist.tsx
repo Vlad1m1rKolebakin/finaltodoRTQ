@@ -2,7 +2,6 @@ import { AddItemForm } from "../../../../../common/components/AddItemForm";
 import { FilterTasksButtons } from "./FilterTasksButton/FilterTasksButtons";
 import { Tasks } from "./Tasks/Tasks";
 import { TodolistTitle } from "../TodolistTitle.tsx/TodolistTitle";
-import { useAppDispatch } from "../../../../../common/hooks/useAppDispatch";
 import { useAddTaskMutation } from "../../../api/taskApi";
 import { DomainTodolist } from "../../../lib/types";
 
@@ -13,7 +12,7 @@ type Props = {
 
 export const Todolist = (props: Props) => {
 
-  const dispatch = useAppDispatch();
+
   const {
     todolist: { id },
 

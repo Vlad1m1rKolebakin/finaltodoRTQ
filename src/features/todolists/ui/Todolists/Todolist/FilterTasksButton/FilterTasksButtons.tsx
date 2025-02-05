@@ -1,8 +1,9 @@
 import { Box, Button } from "@mui/material"
 import { containerSx } from "./FilterTasksButtons.styles"
-import {  DomainTodolist, FilterValuesType } from "../../../../model/todolistSlice"
+
 import { useAppDispatch } from "../../../../../../common/hooks/useAppDispatch"
-import { _todolistsApi, todolistApi } from "../../../../api/todolistsApi"
+import {  todolistApi } from "../../../../api/todolistsApi"
+import { DomainTodolist, FilterValuesType } from "../../../../lib/types"
 
 
 

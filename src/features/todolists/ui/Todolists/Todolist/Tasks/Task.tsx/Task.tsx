@@ -1,16 +1,17 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent} from "react";
 import { Checkbox, IconButton, ListItem } from "@mui/material";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { getListItemSx } from "./Task.styles";
-import { DomainTodolist } from "../../../../../model/todolistSlice";
+
 import { useAppDispatch } from "../../../../../../../common/hooks/useAppDispatch";
 import { EditableSpan } from "../../../../../../../common/components/EditableSpan";
-import { DomainTask, UpdateTaskDomainModel } from "../../../../../api/tasksApi.types";
+import { DomainTask, UpdateTaskModel } from "../../../../../api/tasksApi.types";
 import { TaskStatus } from "../../../../../../../common/enums/enums";
-import { tasksApi, useRemoveTaskMutation, useUpdateTaskMutation } from "../../../../../api/taskApi";
-import { todolistApi, useGetTodolistsQuery } from "../../../../../api/todolistsApi";
-import { RequestStatus, selectAppStatus } from "../../../../../../../app/appSlice";
-import { useAppSelector } from "../../../../../../../common/hooks/useAppSelector";
+import {  useRemoveTaskMutation, useUpdateTaskMutation } from "../../../../../api/taskApi";
+import { todolistApi, } from "../../../../../api/todolistsApi";
+import { RequestStatus} from "../../../../../../../app/appSlice";
+import { DomainTodolist } from "../../../../../lib/types";
+
 
 type Props = {
   task: DomainTask;
@@ -54,7 +55,7 @@ const updateQueryData = (status: RequestStatus) => {
       : TaskStatus.New;
 
 
-      const model: UpdateTaskDomainModel = {
+      const model: UpdateTaskModel = {
         status,
         title: task.title,
         deadline: task.deadline,
@@ -67,7 +68,7 @@ const updateQueryData = (status: RequestStatus) => {
   };
 
   const changeTaskTitleHandler = (title: string) => {
-    const model: UpdateTaskDomainModel = {
+    const model: UpdateTaskModel = {
       status: task.status,
       title,
       deadline: task.deadline,
