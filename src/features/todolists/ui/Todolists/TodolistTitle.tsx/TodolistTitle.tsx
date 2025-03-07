@@ -3,7 +3,7 @@ import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import {  IconButton } from "@mui/material";
 import { todolistApi, useDeleteTodolistMutation, useUpdateTodolistTitleMutation } from "../../../api/todolistsApi";
 import { useAppDispatch } from "../../../../../common/hooks/useAppDispatch";
-import { RequestStatus } from "../../../../../app/appSlice";
+// import { RequestStatus } from "../../../../../app/appSlice";
 import { DomainTodolist } from "../../../lib/types";
 
 type Props = {
@@ -18,16 +18,16 @@ const [ updateTodolistTitle] = useUpdateTodolistTitleMutation()
 
   
 
-const updateQueryData = (status: RequestStatus) => {
-  dispatch(
-    todolistApi.util.updateQueryData('getTodolists', undefined, state => {
-      const index = state.findIndex(tl => tl.id === id)
-      if (index !== -1) {
-        state[index].entityStatus = status
-      }
-    })
-  )
-}
+// const updateQueryData = (status: RequestStatus) => {
+//   dispatch(
+//     todolistApi.util.updateQueryData('getTodolists', undefined, state => {
+//       const index = state.findIndex(tl => tl.id === id)
+//       if (index !== -1) {
+//         state[index].entityStatus = status
+//       }
+//     })
+//   )
+// }
 
 const removeTodolistHandler = async () => {
   const patchResult = dispatch(
