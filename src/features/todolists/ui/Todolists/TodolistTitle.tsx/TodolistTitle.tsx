@@ -29,11 +29,23 @@ const updateQueryData = (status: RequestStatus) => {
   )
 }
 
-const removeTodolistHandler = () => {
-  updateQueryData('loading')
-  deleteTodolist(id).unwrap().catch(()=> {
-    updateQueryData('idle')
-  })
+const removeTodolistHandler = async () => {
+  const patchResult = dispatch(
+    todolistApi.util.updateQueryData('getTodolists', undefined, state => {
+      const index = state.findIndex(tl => tl.id === id)
+      if (index !== -1) {
+        state[index].entityStatus = 'loading'
+      }
+    })
+  )
+  try {
+    const res = await deleteTodolist(id)
+    if (res.error) {
+      patchResult.undo()
+    }
+  } catch {
+    patchResult.undo()
+  }
 }
   const updateTodolistHandler = (title: string) => {
     updateTodolistTitle({ id, title })
